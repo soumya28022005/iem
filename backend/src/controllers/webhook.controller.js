@@ -3,6 +3,7 @@ const { prisma } = require('../lib/prisma');
 const { config } = require('../lib/config');
 const { AppError } = require('../lib/http');
 const { enqueueAutofix } = require('../workers/queue');
+const vectorService = require('../services/vector.service'); // Eita notun add korlam
 
 function getRawBody(req) {
   if (Buffer.isBuffer(req.rawBody)) return req.rawBody;
@@ -87,4 +88,64 @@ exports.errorWebhook = async (req, res) => {
 
 exports.githubWebhook = async (req, res) => {
   res.json({ status: 'received', event: req.headers['x-github-event'] || 'unknown' });
+};
+
+// ==========================================
+// TELEGRAM WEBHOOK (Multi-Tenant & Isolated)
+// ==========================================
+exports.handleTelegramWebhook = async (req, res) => {
+  try {
+    const { message } = req.body;
+    if (!message) return res.sendStatus(200);
+
+    const chatId = message.chat.id.toString();
+    const text = message.text || '';
+    const senderName = message.from.first_name || message.from.username || 'Team Member';
+
+    // 1. Handle Deep Link (Bot Group e Add korle)
+    if (text.startsWith('/start ')) {
+      const workspaceId = text.split(' ')[1];
+      
+      if (workspaceId) {
+        await prisma.workspace.update({
+          where: { id: workspaceId },
+          data: { telegram_chat_id: chatId }
+        });
+        console.log(`[NexusOps] Successfully linked Telegram Chat ${chatId} to Workspace ${workspaceId}`);
+        return res.sendStatus(200);
+      }
+    }
+
+    // 2. Handle Normal Messages (Memory Save)
+    const workspace = await prisma.workspace.findFirst({
+      where: { telegram_chat_id: chatId }
+    });
+
+    if (workspace && text && !text.startsWith('/')) {
+      // Vectorize the text using OpenAI/Groq
+      const embedding = await vectorService.embedQuery(text);
+
+      // Save to Supabase using Prisma Raw Query inside vector.service
+      await vectorService.insertChunkWithEmbedding({
+        workspaceId: workspace.id,
+        sourceId: workspace.id, // Fallback source ID for Telegram groups
+        chunkIndex: 0,
+        text: text,
+        embedding: embedding, 
+        metadata: {
+          sender: senderName,
+          source_type: 'telegram',
+          channel_name: message.chat.title || 'Telegram Group',
+          timestamp: new Date().toISOString()
+        }
+      });
+      
+      console.log(`[NexusOps] Saved message from ${senderName} in Workspace ${workspace.id}`);
+    }
+
+    res.sendStatus(200);
+  } catch (error) {
+    console.error("[NexusOps Webhook Error]:", error);
+    res.sendStatus(200); 
+  }
 };

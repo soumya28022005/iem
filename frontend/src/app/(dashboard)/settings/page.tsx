@@ -1,3 +1,4 @@
+// frontend/src/app/(dashboard)/settings/page.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -12,6 +13,10 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import TelegramInvite from '@/components/nexus/TelegramInvite';
+
+// Zustand store theke hook ta import korun (path ta apnar store onujayi ektu check kore neben)
+import { useWorkspaceStore } from "@/store/workspaceStore"; 
 
 const settingsSections = [
   {
@@ -65,18 +70,30 @@ const settingsSections = [
 ];
 
 export default function SettingsPage() {
+  // Store theke current workspace ta nilam
+  const currentWorkspace = useWorkspaceStore((state) => state.currentWorkspace);
+
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
         <h1 className="text-2xl font-semibold text-text-primary tracking-tight">
           Settings
         </h1>
-        <p className="text-sm text-text-secondary mt-1">
+        <p className="text-sm text-text-secondary mt-1 mb-6">
           Configure your NexusOps workspace
         </p>
+        
+        {/* Workspace jodi load hoye thake tobei button ta dekhabe */}
+        {currentWorkspace?.id ? (
+          <TelegramInvite workspaceId={currentWorkspace.id} />
+        ) : (
+          <div className="p-4 border rounded-lg bg-slate-900 border-slate-700 animate-pulse">
+            <p className="text-gray-400">Loading workspace details...</p>
+          </div>
+        )}
       </div>
 
-      <div className="space-y-2.5">
+      <div className="space-y-2.5 mt-6">
         {settingsSections.map((section, index) => {
           const Icon = section.icon;
           return (

@@ -3458,6 +3458,7 @@ export namespace Prisma {
   export type WorkspaceMinAggregateOutputType = {
     id: string | null
     name: string | null
+    telegramChatId: string | null
     slug: string | null
     description: string | null
     owner_id: string | null
@@ -3479,6 +3480,7 @@ export namespace Prisma {
   export type WorkspaceMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    telegramChatId: string | null
     slug: string | null
     description: string | null
     owner_id: string | null
@@ -3500,6 +3502,7 @@ export namespace Prisma {
   export type WorkspaceCountAggregateOutputType = {
     id: number
     name: number
+    telegramChatId: number
     slug: number
     description: number
     owner_id: number
@@ -3534,6 +3537,7 @@ export namespace Prisma {
   export type WorkspaceMinAggregateInputType = {
     id?: true
     name?: true
+    telegramChatId?: true
     slug?: true
     description?: true
     owner_id?: true
@@ -3555,6 +3559,7 @@ export namespace Prisma {
   export type WorkspaceMaxAggregateInputType = {
     id?: true
     name?: true
+    telegramChatId?: true
     slug?: true
     description?: true
     owner_id?: true
@@ -3576,6 +3581,7 @@ export namespace Prisma {
   export type WorkspaceCountAggregateInputType = {
     id?: true
     name?: true
+    telegramChatId?: true
     slug?: true
     description?: true
     owner_id?: true
@@ -3685,6 +3691,7 @@ export namespace Prisma {
   export type WorkspaceGroupByOutputType = {
     id: string
     name: string
+    telegramChatId: string | null
     slug: string
     description: string | null
     owner_id: string
@@ -3726,6 +3733,7 @@ export namespace Prisma {
   export type WorkspaceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    telegramChatId?: boolean
     slug?: boolean
     description?: boolean
     owner_id?: boolean
@@ -3761,6 +3769,7 @@ export namespace Prisma {
   export type WorkspaceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    telegramChatId?: boolean
     slug?: boolean
     description?: boolean
     owner_id?: boolean
@@ -3784,6 +3793,7 @@ export namespace Prisma {
   export type WorkspaceSelectScalar = {
     id?: boolean
     name?: boolean
+    telegramChatId?: boolean
     slug?: boolean
     description?: boolean
     owner_id?: boolean
@@ -3841,6 +3851,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      telegramChatId: string | null
       slug: string
       description: string | null
       owner_id: string
@@ -4265,6 +4276,7 @@ export namespace Prisma {
   interface WorkspaceFieldRefs {
     readonly id: FieldRef<"Workspace", 'String'>
     readonly name: FieldRef<"Workspace", 'String'>
+    readonly telegramChatId: FieldRef<"Workspace", 'String'>
     readonly slug: FieldRef<"Workspace", 'String'>
     readonly description: FieldRef<"Workspace", 'String'>
     readonly owner_id: FieldRef<"Workspace", 'String'>
@@ -17729,6 +17741,7 @@ export namespace Prisma {
   export const WorkspaceScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    telegramChatId: 'telegramChatId',
     slug: 'slug',
     description: 'description',
     owner_id: 'owner_id',
@@ -18237,6 +18250,7 @@ export namespace Prisma {
     NOT?: WorkspaceWhereInput | WorkspaceWhereInput[]
     id?: UuidFilter<"Workspace"> | string
     name?: StringFilter<"Workspace"> | string
+    telegramChatId?: StringNullableFilter<"Workspace"> | string | null
     slug?: StringFilter<"Workspace"> | string
     description?: StringNullableFilter<"Workspace"> | string | null
     owner_id?: UuidFilter<"Workspace"> | string
@@ -18271,6 +18285,7 @@ export namespace Prisma {
   export type WorkspaceOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    telegramChatId?: SortOrderInput | SortOrder
     slug?: SortOrder
     description?: SortOrderInput | SortOrder
     owner_id?: SortOrder
@@ -18309,6 +18324,7 @@ export namespace Prisma {
     OR?: WorkspaceWhereInput[]
     NOT?: WorkspaceWhereInput | WorkspaceWhereInput[]
     name?: StringFilter<"Workspace"> | string
+    telegramChatId?: StringNullableFilter<"Workspace"> | string | null
     description?: StringNullableFilter<"Workspace"> | string | null
     owner_id?: UuidFilter<"Workspace"> | string
     telegram_chat_id?: StringNullableFilter<"Workspace"> | string | null
@@ -18342,6 +18358,7 @@ export namespace Prisma {
   export type WorkspaceOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    telegramChatId?: SortOrderInput | SortOrder
     slug?: SortOrder
     description?: SortOrderInput | SortOrder
     owner_id?: SortOrder
@@ -18372,6 +18389,7 @@ export namespace Prisma {
     NOT?: WorkspaceScalarWhereWithAggregatesInput | WorkspaceScalarWhereWithAggregatesInput[]
     id?: UuidWithAggregatesFilter<"Workspace"> | string
     name?: StringWithAggregatesFilter<"Workspace"> | string
+    telegramChatId?: StringNullableWithAggregatesFilter<"Workspace"> | string | null
     slug?: StringWithAggregatesFilter<"Workspace"> | string
     description?: StringNullableWithAggregatesFilter<"Workspace"> | string | null
     owner_id?: UuidWithAggregatesFilter<"Workspace"> | string
@@ -19729,6 +19747,7 @@ export namespace Prisma {
   export type WorkspaceCreateInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -19762,6 +19781,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -19795,6 +19815,7 @@ export namespace Prisma {
   export type WorkspaceUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19828,6 +19849,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -19861,6 +19883,7 @@ export namespace Prisma {
   export type WorkspaceCreateManyInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -19883,6 +19906,7 @@ export namespace Prisma {
   export type WorkspaceUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -19904,6 +19928,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -21636,6 +21661,7 @@ export namespace Prisma {
   export type WorkspaceCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    telegramChatId?: SortOrder
     slug?: SortOrder
     description?: SortOrder
     owner_id?: SortOrder
@@ -21663,6 +21689,7 @@ export namespace Prisma {
   export type WorkspaceMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    telegramChatId?: SortOrder
     slug?: SortOrder
     description?: SortOrder
     owner_id?: SortOrder
@@ -21684,6 +21711,7 @@ export namespace Prisma {
   export type WorkspaceMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    telegramChatId?: SortOrder
     slug?: SortOrder
     description?: SortOrder
     owner_id?: SortOrder
@@ -24250,6 +24278,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutOwnerInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -24282,6 +24311,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutOwnerInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -24485,6 +24515,7 @@ export namespace Prisma {
     NOT?: WorkspaceScalarWhereInput | WorkspaceScalarWhereInput[]
     id?: UuidFilter<"Workspace"> | string
     name?: StringFilter<"Workspace"> | string
+    telegramChatId?: StringNullableFilter<"Workspace"> | string | null
     slug?: StringFilter<"Workspace"> | string
     description?: StringNullableFilter<"Workspace"> | string | null
     owner_id?: UuidFilter<"Workspace"> | string
@@ -25513,6 +25544,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutMembersInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -25545,6 +25577,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutMembersInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -25640,6 +25673,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutMembersInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25672,6 +25706,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutMembersInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -25757,6 +25792,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutSourcesInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -25789,6 +25825,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutSourcesInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -25877,6 +25914,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutSourcesInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25909,6 +25947,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutSourcesInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -25957,6 +25996,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutChunksInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -25989,6 +26029,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutChunksInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -26193,6 +26234,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutChunksInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26225,6 +26267,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutChunksInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -26399,6 +26442,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutQuery_historyInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -26431,6 +26475,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutQuery_historyInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -26526,6 +26571,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutQuery_historyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26558,6 +26604,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutQuery_historyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -26643,6 +26690,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutTasksInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -26675,6 +26723,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutTasksInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -26758,6 +26807,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutTasksInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26790,6 +26840,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutTasksInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -26863,6 +26914,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutProblemsInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -26895,6 +26947,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutProblemsInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -26943,6 +26996,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutProblemsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26975,6 +27029,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutProblemsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -27007,6 +27062,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutRepositoriesInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -27039,6 +27095,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutRepositoriesInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -27169,6 +27226,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutRepositoriesInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27201,6 +27259,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutRepositoriesInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -27249,6 +27308,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutIncidentsInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -27281,6 +27341,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutIncidentsInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -27460,6 +27521,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutIncidentsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27492,6 +27554,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutIncidentsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -27861,6 +27924,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutRevert_eventsInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -27893,6 +27957,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutRevert_eventsInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -27941,6 +28006,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutRevert_eventsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27973,6 +28039,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutRevert_eventsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -28005,6 +28072,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutError_rate_snapshotsInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -28037,6 +28105,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutError_rate_snapshotsInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -28085,6 +28154,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutError_rate_snapshotsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28117,6 +28187,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutError_rate_snapshotsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -28149,6 +28220,7 @@ export namespace Prisma {
   export type WorkspaceCreateWithoutActivity_logsInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -28181,6 +28253,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedCreateWithoutActivity_logsInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     owner_id: string
@@ -28276,6 +28349,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutActivity_logsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28308,6 +28382,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutActivity_logsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     owner_id?: StringFieldUpdateOperationsInput | string
@@ -28393,6 +28468,7 @@ export namespace Prisma {
   export type WorkspaceCreateManyOwnerInput = {
     id?: string
     name: string
+    telegramChatId?: string | null
     slug: string
     description?: string | null
     telegram_chat_id?: string | null
@@ -28465,6 +28541,7 @@ export namespace Prisma {
   export type WorkspaceUpdateWithoutOwnerInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28497,6 +28574,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateWithoutOwnerInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28529,6 +28607,7 @@ export namespace Prisma {
   export type WorkspaceUncheckedUpdateManyWithoutOwnerInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    telegramChatId?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     telegram_chat_id?: NullableStringFieldUpdateOperationsInput | string | null

@@ -142,6 +142,7 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.WorkspaceScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  telegramChatId: 'telegramChatId',
   slug: 'slug',
   description: 'description',
   owner_id: 'owner_id',
